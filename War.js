@@ -101,8 +101,6 @@ class War{
 
 const Game = new War();
 const deck = new Deck();
-console.log(deck.deck);
-console.log(deck.shuffle());
 Game.playRound();
 Game.displayWinner()
 
