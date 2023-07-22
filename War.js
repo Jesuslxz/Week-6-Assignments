@@ -1,18 +1,20 @@
 // Jesus Lozano
 //Week 6 unit final project
 
-
+//Properties of each player
 class Players {
     constructor(name){
-        this.name = this.name;
+        this.name = name;
         this.cards = [];
         this.points = 0;
     }
 }
 //instantiate two players with their names
-const playerOne = new Players ('Sam');
-const playerTwo = new Players ('Amy');
+const playerOne = new Players("Amy");
+const playerTwo = new Players('Sam');
 
+
+//properties of each card
 class Card {
     constructor(value, rank, type){
         this.value = value;
@@ -31,7 +33,7 @@ class Deck{
     //shuffles the deck unless there are no cards in the deck
     shuffle(){
         if (this.deck.length > 0) {
-            this.deck.sort((a, b) => 0.5 - Math.random())
+            this.deck.sort((a, b) => Math.random() - 0.5 )
         }
     }
     //assigns the cards to each player for 26 for each total
@@ -53,12 +55,7 @@ class Deck{
 
 class War{
     constructor(){
-       // this.createPLayers();
     }
-    // createPLayers(){
-    //    var playerOne = new Players ('Sam');
-    //     var playerTwo = new Players ('Amy');
-    // }
     playRound(){
         for( let i=0; i < playerOne.cards.length; i++){
             if (playerOne.cards[i].value > playerTwo.cards[i].value){
@@ -67,8 +64,10 @@ class War{
             else if ( playerOne.cards[i].value < playerTwo.cards[i].value){
                 playerTwo.points++;
             }  
+            
         }
     }
+    //method for console logging the winner by comaparing scores and displaying results
     displayWinner(){
         if (playerOne.points > playerTwo.points){
             console.log(`
@@ -82,7 +81,7 @@ class War{
             console.log(`
                 --------------------------------------
                 Winner ${playerTwo.name} is the Winner! 
-                ${playerTwo.points} to ${playerOne.points}
+                ${playerOne.points} to ${playerTwo.points}
                 --------------------------------------
                 `)
         }
@@ -90,7 +89,7 @@ class War{
             console.log(`
                 --------------------------------------
                 There is a tie! score being
-                ${playerTwo.points} to ${playerOne.points}
+                ${playerOne.points} to ${playerTwo.points}
                 nobody wins!
                 --------------------------------------
                 `)
@@ -101,12 +100,5 @@ class War{
 const Game = new War();
 const deck = new Deck();
 Game.playRound();
-console.log(playerOne.cards.length);
-// console.log(playerOne.cards);
-// console.log(playerTwo.cards);
-
 Game.displayWinner()
 
-// let game = new Deck()
-// game.createCards
-// console.log(game.deck);
