@@ -35,6 +35,7 @@ class Deck{
         if (this.deck.length > 0) {
             this.deck.sort((a, b) => Math.random() - 0.5 )
         }
+        return this.deck
     }
     //assigns the cards to each player for 26 for each total
     assignCards(){
@@ -97,8 +98,11 @@ class War{
      
     }
 }
+
 const Game = new War();
 const deck = new Deck();
+console.log(deck.deck);
+console.log(deck.shuffle());
 Game.playRound();
 Game.displayWinner()
 
